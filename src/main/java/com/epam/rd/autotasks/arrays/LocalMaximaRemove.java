@@ -12,8 +12,16 @@ public class LocalMaximaRemove {
 
     public static int[] removeLocalMaxima(int[] array){
 
-        //put your code here
+        int[] newArray = new int[array.length];
+        int j = 0;
 
-        throw new UnsupportedOperationException();
+        for (int i = 0; i < array.length; i++) {
+
+            if ((i > 0 && array[i] <= array[i - 1])
+                    || (i != array.length - 1 && array[i] <= array[i + 1])) {
+                newArray[j++] = array[i];
+            }
+        }
+        return Arrays.copyOf(newArray, j);
     }
 }
